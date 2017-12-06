@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.me.eurekaService.util.DataUtils;
 
 @RestController
@@ -24,5 +26,40 @@ public class TestServerController {
     @ResponseBody
     public String testIndex(HttpServletRequest request, HttpServletResponse response) {
         return "server is startup." + DataUtils.formatDateTime(new Date());
+    }
+
+    /**
+     * getDate
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/getDate")
+    @ResponseBody
+    public JSONObject getDate(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        String testJson = request.getParameter("testJson");
+        System.out.println("id=" + id + " testJson=" + testJson);
+        JSONObject obj = new JSONObject();
+        obj.put("name", "getDate");
+        obj.put("updateTime", DataUtils.formatDateTime(new Date()));
+        return obj;
+    }
+
+    /**
+     * getDate
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/testJson")
+    @ResponseBody
+    public JSONObject getDate(String id, String testJson) {
+        System.out.println("id=" + id + " testJson=" + testJson);
+        JSONObject obj = JSON.parseObject(testJson);
+        obj.put("name", "getDate");
+        obj.put("updateTime", DataUtils.formatDateTime(new Date()));
+        return obj;
+
     }
 }
