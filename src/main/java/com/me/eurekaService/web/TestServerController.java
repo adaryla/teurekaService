@@ -41,7 +41,7 @@ public class TestServerController {
         String testJson = request.getParameter("testJson");
         System.out.println("id=" + id + " testJson=" + testJson);
         JSONObject obj = new JSONObject();
-        obj.put("name", "getDate");
+        obj.put("names", "getDate");
         obj.put("updateTime", DataUtils.formatDateTime(new Date()));
         return obj;
     }
