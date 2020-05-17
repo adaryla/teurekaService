@@ -48,8 +48,6 @@ public class TestServerController {
 
     /**
      * getDate
-     * @param request
-     * @param response
      * @return
      */
     @RequestMapping("/testJson")
