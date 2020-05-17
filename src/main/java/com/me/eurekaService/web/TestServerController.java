@@ -47,7 +47,9 @@ public class TestServerController {
     }
 
     /**
-     * getDate
+     * 测试使用
+     * @param id
+     * @param testJson
      * @return
      */
     @RequestMapping("/testJson")
@@ -55,7 +57,7 @@ public class TestServerController {
     public JSONObject getDate(String id, String testJson) {
         System.out.println("id=" + id + " testJson=" + testJson);
         JSONObject obj = JSON.parseObject(testJson);
-        obj.put("name", "getDate");
+        obj.put("names", "getDate");
         obj.put("updateTime", DataUtils.formatDateTime(new Date()));
         return obj;
 
