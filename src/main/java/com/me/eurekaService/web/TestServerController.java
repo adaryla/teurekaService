@@ -57,7 +57,7 @@ public class TestServerController {
     public JSONObject getDate(String id, String testJson) {
         System.out.println("id=" + id + " testJson=" + testJson);
         JSONObject obj = JSON.parseObject(testJson);
-        obj.put("branche", "branche_05172");
+        obj.put("branches", "branche_05172");
         obj.put("name", "getDate");
 
         obj.put("updateTime", DataUtils.formatDateTime(new Date()));
